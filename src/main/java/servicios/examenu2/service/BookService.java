@@ -51,8 +51,6 @@ public class BookService {
         bookToSave.setPublicationDate(book.getPublicationDate());
         bookToSave.setCoverImage(book.getCoverImage());
 
-
-
         Book savedBook = repository.saveAndFlush(bookToSave);
 
         return new ResponseEntity<>(new Message(savedBook, "Libro registrado exitosamente", TypesResponse.SUCCESS), HttpStatus.OK);
@@ -115,6 +113,14 @@ public class BookService {
         List<Book> books = repository.findAllOrderByPublicationDateAsc();
 
         return new ResponseEntity<>(new Message(books, "Libros encontrados ordenados por fecha de publicación ascendentemente", TypesResponse.SUCCESS), HttpStatus.OK);
+    }
+
+    @Transactional(readOnly = true)
+    public ResponseEntity<Object> findAllIfHasImage() {
+
+        List<Book> books = repository.findAllIfHasImage();
+
+        return new ResponseEntity<>(new Message(books, "Libros encontrados con imagen", TypesResponse.SUCCESS), HttpStatus.OK);
     }
 
 }

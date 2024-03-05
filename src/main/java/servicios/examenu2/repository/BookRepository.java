@@ -18,4 +18,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Query("SELECT b FROM Book b ORDER BY b.publicationDate ASC")
     List<Book> findAllOrderByPublicationDateAsc();
 
+    @Query("SELECT b FROM Book b WHERE b.coverImage IS NOT NULL")
+    List<Book> findAllIfHasImage();
+
 }

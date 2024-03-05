@@ -16,7 +16,7 @@ public class Book {
     private String author;
     @Column(name = "publication_date", columnDefinition = "DATE NOT NULL")
     private Date publicationDate;
-    @Column(name = "cover_image", columnDefinition = "TEXT NOT NULL")
+    @Column(name = "cover_image", columnDefinition = "TEXT")
     private String coverImage;
     @Column(name = "status", columnDefinition = "BOOL DEFAULT TRUE")
     private boolean status;

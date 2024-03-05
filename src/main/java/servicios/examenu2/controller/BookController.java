@@ -54,5 +54,11 @@ public class BookController {
         return service.findAllOrderByPublicationDate();
     }
 
+    @GetMapping("/filter/image")
+    public ResponseEntity<Object> findAllIfHasImage() {
+        return service.findAllIfHasImage();
+    }
+
+
 
 }
